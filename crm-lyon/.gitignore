@@ -8,6 +8,9 @@
 # dependencies
 /node_modules
 
+# git
+/src/environments/environment.firebase.ts
+
 # IDEs and editors
 /.idea
 .project
