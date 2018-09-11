@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PrestationService } from '../../services/prestation.service';
+import { Prestation } from '../../../shared/models/prestation';
 
 @Component({
   selector: 'app-list-prestation',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListPrestationComponent implements OnInit {
 
-  constructor() { }
+  public collection: Prestation[];
+  public headers: string[];
+
+  constructor(
+    private prestationService: PrestationService
+  ) { }
 
   ngOnInit() {
+    this.collection = this.prestationService.collection;
+    this.headers = ['Type', 'Client', 'Nb Jours', 'TJM HT', 'Total HT', 'Total TTC', 'Action'];
   }
 
 }

@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
 
 import { environment } from '../environments/environment';
 
@@ -8,6 +8,7 @@ const routes: Routes = [
   {
     path: 'prestations',
     loadChildren: './prestation/prestation.module#PrestationModule',
+    data: { preload: true }
   }
 ];
 
@@ -17,6 +18,7 @@ const routes: Routes = [
       routes,
       {
         enableTracing : (!environment.production),
+        preloadingStrategy: PreloadAllModules
       }
     )
   ]
