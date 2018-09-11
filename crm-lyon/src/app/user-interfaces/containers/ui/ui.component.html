@@ -1,5 +1,5 @@
 <header class="fixed-top">
-  HEADER
+  <app-header></app-header>
 </header>
 
 <main>
@@ -9,16 +9,18 @@
 
   <aside>
     <div class="scroller">
-      menu
+      <app-nav></app-nav>
     </div>
   </aside>
 
   <div class="page">
     <div class="contents">
+        <router-outlet></router-outlet>
+        <!-- Routed views go here -->
     </div>
 
     <footer>
-      footer
+      <app-footer></app-footer>
     </footer>
   </div>
 </main>

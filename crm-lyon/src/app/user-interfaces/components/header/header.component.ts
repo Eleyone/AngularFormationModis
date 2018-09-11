@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  tittle = 'My no constraint CRM';
+  title = 'My no constraint CRM';
 
   constructor() { }
 
