@@ -14,6 +14,7 @@ const prestationRoutes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forChild(prestationRoutes)
-  ]
+  ],
+  exports: [RouterModule]
 })
 export class PrestationRoutingModule { }

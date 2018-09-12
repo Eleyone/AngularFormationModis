@@ -22,7 +22,7 @@ export class ListPrestationComponent implements OnInit {
     this.headers = ['Type', 'Client', 'Nb Jours', 'TJM HT', 'Total HT', 'Total TTC', 'Action'];
     this.button = {
       libelle: 'Ajouter Prestation',
-      route: '/prestations/add'
+      route: 'add'
     };
   }
 

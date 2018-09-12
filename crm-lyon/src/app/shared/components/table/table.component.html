@@ -11,7 +11,9 @@
       </tbody>
       <tfoot>
         <tr>
-          <th><a [href]="button.route">{{ button.libelle }}</a></th>
+          <th>
+            <a [routerLink]='[button.route]' routerLinkActive="router-link-active">{{ button.libelle }}</a>
+          </th>
         </tr>
       </tfoot>
     </table>
