@@ -28,6 +28,9 @@ export class PrestationService {
   // get presta by id
 
   // add presta
+  public add(presta: Prestation): void {
+    this.collection.push(presta);
+  }
 
   // update presta
   public update(presta: Prestation, state?: State): void {
