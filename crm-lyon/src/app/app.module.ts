@@ -1,6 +1,8 @@
 // Angular Core Modules
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
 
 // External Modules
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -14,6 +16,9 @@ import { UserInterfacesModule } from './user-interfaces/user-interfaces.module';
 // App module component
 import { AppComponent } from './app.component';
 
+// the second parameter 'fr' is optional
+registerLocaleData(localeFr, 'fr');
+
 @NgModule({
   declarations: [
     AppComponent
@@ -26,7 +31,7 @@ import { AppComponent } from './app.component';
     UserInterfacesModule,
     NgbModule.forRoot()
   ],
-  providers: [],
+  providers: [ { provide: LOCALE_ID, useValue: 'fr' } ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

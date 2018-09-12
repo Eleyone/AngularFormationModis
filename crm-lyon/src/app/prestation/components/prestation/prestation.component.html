@@ -1,7 +1,7 @@
 <td>{{ presta.typePresta }}</td>
 <td>{{ presta.client }}</td>
 <td>{{ presta.nbJours }}</td>
-<td>{{ presta.tjmHt }}</td>
-<td>{{ presta.totalHT() }}</td>
-<td>{{ presta.totalTTC() }}</td>
+<td>{{ presta.tjmHt | currency:'EUR':'symbol':'1.2-2':'fr'}}</td>
+<td>{{ presta | total:'HT' | currency:'EUR':'symbol':'1.2-2':'fr' }}</td>
+<td>{{ presta | total:'TTC' | currency:'EUR':'symbol':'1.2-2':'fr' }}</td>
 <td>{{ presta.state }}</td>
