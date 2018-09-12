@@ -11,6 +11,7 @@ export class ListPrestationComponent implements OnInit {
 
   public collection: Prestation[];
   public headers: string[];
+  public button: object;
 
   constructor(
     private prestationService: PrestationService
@@ -19,6 +20,10 @@ export class ListPrestationComponent implements OnInit {
   ngOnInit() {
     this.collection = this.prestationService.collection;
     this.headers = ['Type', 'Client', 'Nb Jours', 'TJM HT', 'Total HT', 'Total TTC', 'Action'];
+    this.button = {
+      libelle: 'Ajouter Prestation',
+      route: '/prestations/add'
+    };
   }
 
 }

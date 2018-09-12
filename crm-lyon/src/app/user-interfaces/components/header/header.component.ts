@@ -7,11 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  title = 'My no constraint CRM';
+  public title = 'My no constraint CRM';
+  public open = false;
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
+  public toggle(): void {
+    this.open = !this.open;
+  }
 }

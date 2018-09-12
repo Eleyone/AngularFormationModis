@@ -1,7 +1,7 @@
 // Angular Core Modules
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
-import { registerLocaleData } from '@angular/common';
+import { registerLocaleData, CurrencyPipe } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 
 // External Modules
@@ -31,7 +31,10 @@ registerLocaleData(localeFr, 'fr');
     UserInterfacesModule,
     NgbModule.forRoot()
   ],
-  providers: [ { provide: LOCALE_ID, useValue: 'fr' } ],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'fr' },
+    CurrencyPipe
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

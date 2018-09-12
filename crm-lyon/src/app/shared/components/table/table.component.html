@@ -9,6 +9,11 @@
       <tbody>
         <ng-content></ng-content>
       </tbody>
+      <tfoot>
+        <tr>
+          <th><a [href]="button.route">{{ button.libelle }}</a></th>
+        </tr>
+      </tfoot>
     </table>
   </div>
 </div>
