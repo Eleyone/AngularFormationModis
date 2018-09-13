@@ -1,7 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { PrestationService } from '../../services/prestation.service';
+
 import { Prestation } from '../../../shared/models/prestation';
 import { State } from '../../../shared/enums/state.enum';
-import { PrestationService } from '../../services/prestation.service';
 
 @Component({
   selector: 'app-prestation',
@@ -14,13 +17,28 @@ export class PrestationComponent implements OnInit {
   public states = Object.values(State);
 
   constructor(
-    private prestationService: PrestationService
+    private prestationService: PrestationService,
+    private router: Router
   ) {}
 
   ngOnInit() {}
 
   public updateState(e): void {
     const state = e.target.value;
-    this.prestationService.update(this.presta, state);
+    this.prestationService.updateState(this.presta, state).then(() => {
+      this.presta.state = state;
+    });
+  }
+
+  public deletePresta(e): void {
+    const prestaId = e.target.value;
+    this.prestationService.delete(prestaId).then((data) => {
+      this.prestationService.message$.next('Trust me, I\'m enginer.');
+    });
+  }
+
+  public updatePresta(e): void {
+    const prestaId = e.target.value;
+    this.router.navigate(['/prestations/edit', prestaId]);
   }
 }

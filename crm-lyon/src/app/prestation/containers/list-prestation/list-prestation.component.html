@@ -1,5 +1,8 @@
 <app-table [headers]="headers" [button]="button">
-    <ng-container *ngFor="let item of collection">
+    <ng-container *ngFor="let item of collection$ | async">
         <app-prestation [presta]="item"></app-prestation>
       </ng-container>
 </app-table>
+<div *ngIf="message$ | async; let message">
+    {{ message }}
+</div>

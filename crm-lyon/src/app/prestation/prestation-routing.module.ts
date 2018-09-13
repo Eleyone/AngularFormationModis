@@ -8,7 +8,7 @@ import { EditPrestationComponent } from './containers/edit-prestation/edit-prest
 const prestationRoutes: Routes = [
   { path: '', component: ListPrestationComponent },
   { path: 'add', component: AddPrestationComponent},
-  { path: 'edit', component: EditPrestationComponent}
+  { path: 'edit/:id', component: EditPrestationComponent}
 ];
 
 @NgModule({

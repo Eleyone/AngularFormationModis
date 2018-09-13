@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PrestationService } from '../../services/prestation.service';
 import { Prestation } from '../../../shared/models/prestation';
+import { Observable, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-list-prestation',
@@ -9,7 +10,9 @@ import { Prestation } from '../../../shared/models/prestation';
 })
 export class ListPrestationComponent implements OnInit {
 
-  public collection: Prestation[];
+  // public collection: Prestation[];
+  public collection$: Observable<Prestation[]>;
+  public message$: Subject<string>;
   public headers: string[];
   public button: object;
 
@@ -18,7 +21,8 @@ export class ListPrestationComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.collection = this.prestationService.collection;
+    this.collection$ = this.prestationService.collection$;
+    this.message$ = this.prestationService.message$;
     this.headers = ['Type', 'Client', 'Nb Jours', 'TJM HT', 'Total HT', 'Total TTC', 'Action'];
     this.button = {
       libelle: 'Ajouter Prestation',

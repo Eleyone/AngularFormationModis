@@ -8,13 +8,14 @@ import { TotalPipe } from './pipes/total.pipe';
 import { LocalCurrencyPipe } from './pipes/local-currency.pipe';
 
 import { StateDirective } from './directives/state.directive';
+import { ModalComponent } from './components/modal/modal.component';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule
   ],
-  declarations: [TableComponent, TotalPipe, LocalCurrencyPipe, StateDirective],
-  exports: [TableComponent, TotalPipe, LocalCurrencyPipe, StateDirective]
+  declarations: [TableComponent, TotalPipe, LocalCurrencyPipe, StateDirective, ModalComponent],
+  exports: [TableComponent, TotalPipe, LocalCurrencyPipe, StateDirective, ModalComponent]
 })
 export class SharedModule { }
