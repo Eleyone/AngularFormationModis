@@ -1,29 +1,35 @@
 <form #prestationForm="ngForm" (ngSubmit)="process()">
   <div class="form-group">
     <label for="typePresta">Type prestation</label>
-    <input type="text" class="form-control" id="typePresta" name="typePresta" aria-describedby="emailHelp" required minlength="4" [(ngModel)]="presta.typePresta">
+    <input type="text" class="form-control" id="typePresta" name="typePresta" #typePresta="ngModel" required minlength="4" [(ngModel)]="presta.typePresta">
+    <div class="alert alert-danger" *ngIf="typePresta.invalid && typePresta.touched">{{ typePresta.errors }}</div>
   </div>
   <div class="form-group">
     <label for="client">Client</label>
-    <input type="text" class="form-control" id="client" name="client" aria-describedby="emailHelp" required minlength="4" [(ngModel)]="presta.client">
+    <input type="text" class="form-control" id="client" name="client" #client="ngModel" required minlength="4" [(ngModel)]="presta.client">
+    <div class="alert alert-danger" *ngIf="client.invalid && client.touched">{{ client.errors }}</div>
   </div>
   <div class="form-group">
     <label for="nbJours">Nb jours</label>
-    <input type="text" class="form-control" id="nbJours" name="nbJours" aria-describedby="emailHelp" required minlength="1" [(ngModel)]="presta.nbJours">
+    <input type="text" class="form-control" id="nbJours" name="nbJours" #nbJours="ngModel" required minlength="1" [(ngModel)]="presta.nbJours">
+    <div class="alert alert-danger" *ngIf="nbJours.invalid && nbJours.touched">{{ nbJours.errors }}</div>
   </div>
   <div class="form-group">
     <label for="tjmHt">TJM HT</label>
-    <input type="text" class="form-control" id="tjmHt" name="tjmHt" aria-describedby="emailHelp" required minlength="1" [(ngModel)]="presta.tjmHt">
+    <input type="text" class="form-control" id="tjmHt" name="tjmHt" #tjmHt="ngModel" required minlength="1" [(ngModel)]="presta.tjmHt">
+    <div class="alert alert-danger" *ngIf="tjmHt.invalid && tjmHt.touched">{{ tjmHt.errors }}</div>
   </div>
   <div class="form-group">
     <label for="tauxTva">TVA</label>
-    <input type="text" class="form-control" id="tauxTva" name="tauxTva" aria-describedby="emailHelp" required minlength="4" [(ngModel)]="presta.tauxTva">
+    <input type="text" class="form-control" id="tauxTva" name="tauxTva" #tauxTva="ngModel" required minlength="4" [(ngModel)]="presta.tauxTva">
+    <div class="alert alert-danger" *ngIf="tauxTva.invalid && tauxTva.touched">{{ tauxTva.errors }}</div>
   </div>
   <div class="form-group">
     <label for="state">State</label>
-    <select class="form-control" id="state" name="state" required [(ngModel)]="presta.state">
+    <select class="form-control" id="state" name="state" #state="ngModel" required [(ngModel)]="presta.state">
       <option [value]="item" *ngFor="let item of states">{{ item }}</option>
     </select>
+    <div class="alert alert-danger" *ngIf="state.invalid && state.touched">{{ state.errors }}</div>
   </div>
   <input type="hidden" id="id" name="id" [(ngModel)]="presta.id">
   <button type="submit" [disabled]="prestationForm.invalid" class="btn btn-primary">Submit</button>

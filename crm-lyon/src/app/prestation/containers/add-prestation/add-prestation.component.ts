@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 })
 export class AddPrestationComponent implements OnInit {
 
+  public presta: Prestation = new Prestation();
+
   constructor(
     private prestationService: PrestationService,
     private router: Router

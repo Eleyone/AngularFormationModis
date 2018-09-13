@@ -8,6 +8,8 @@ import { Prestation } from '../../../shared/models/prestation';
 })
 export class EditPrestationComponent implements OnInit {
 
+  public presta: Prestation = new Prestation();
+
   constructor() { }
 
   ngOnInit() {
