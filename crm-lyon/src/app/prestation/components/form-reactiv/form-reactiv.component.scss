@@ -1,0 +1,12 @@
+@import "~src/variables";
+
+.ng-valid[required],
+.ng-valid.required {
+  border-left: 5px solid $palette-color-four;
+  /* green */
+}
+
+.ng-invalid:not(form) {
+  border-left: 5px solid $palette-color-two;
+  /* red */
+}

@@ -2,29 +2,35 @@
   <div class="form-group">
     <label for="typePresta">Type prestation</label>
     <input type="text" class="form-control" id="typePresta" formControlName="typePresta">
+    <div class="alert alert-danger" *ngIf="prestaForm.get('typePresta').invalid && prestaForm.get('typePresta').touched">Invalid</div>
   </div>
   <div class="form-group">
     <label for="client">Client</label>
-    <input type="text" class="form-control" id="client" formControlName="client">
+    <input type="text" class="form-control" id="client" formControlName="client" #client>
+    <div class="alert alert-danger" *ngIf="client.invalid && client.touched">Invalid</div>
   </div>
   <div class="form-group">
     <label for="nbJours">Nb jours</label>
     <input type="text" class="form-control" id="nbJours" formControlName="nbJours">
+    <div class="alert alert-danger" *ngIf="isError('nbJours')">Invalid</div>
   </div>
   <div class="form-group">
     <label for="tjmHt">TJM HT</label>
     <input type="text" class="form-control" id="tjmHt" formControlName="tjmHt">
+    <div class="alert alert-danger" *ngIf="isError('nbJours')">Invalid</div>
   </div>
   <div class="form-group">
     <label for="tauxTva">TVA</label>
     <input type="text" class="form-control" id="tauxTva" formControlName="tauxTva">
+    <div class="alert alert-danger" *ngIf="isError('nbJours')">Invalid</div>
   </div>
   <div class="form-group">
     <label for="state">State</label>
     <select class="form-control" id="state" formControlName="state">
       <option [value]="item" *ngFor="let item of states">{{ item }}</option>
     </select>
+    <div class="alert alert-danger" *ngIf="isError('nbJours')">Invalid</div>
   </div>
   <input type="hidden" id="id" formControlName="id">
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" [disabled]="prestaForm.invalid" class="btn btn-primary">Submit</button>
 </form>

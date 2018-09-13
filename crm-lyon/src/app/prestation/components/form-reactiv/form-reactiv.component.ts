@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { Prestation } from '../../../shared/models/prestation';
 
@@ -28,17 +28,34 @@ export class FormReactivComponent implements OnInit {
 
   private buildForm(): void {
     this.prestaForm = this.formBuilder.group({
-      typePresta : [this.presta.typePresta],
-      client : [this.presta.client],
-      nbJours : [this.presta.nbJours],
-      tjmHt : [this.presta.tjmHt],
-      tauxTva: [this.presta.tauxTva],
-      state: [this.presta.state],
+      typePresta: [this.presta.typePresta, Validators.compose([
+        Validators.required, Validators.minLength(4)
+      ])],
+      client: [this.presta.client, Validators.compose([
+        Validators.required, Validators.minLength(4)
+      ])],
+      nbJours: [this.presta.nbJours, Validators.compose([
+        Validators.required, Validators.minLength(1)
+      ])],
+      tjmHt: [this.presta.tjmHt, Validators.compose([
+        Validators.required, Validators.minLength(1)
+      ])],
+      tauxTva: [this.presta.tauxTva, Validators.compose([
+        Validators.required, Validators.minLength(1)
+      ])],
+      state: [this.presta.state, Validators.compose([
+        Validators.required
+      ])],
       id: [this.presta.id]
     });
   }
 
   public process(): void {
     this.newPresta.emit(new Prestation(this.prestaForm.value));
+  }
+
+  public isError(fieldId: string): boolean {
+    const field = this.prestaForm.get(fieldId);
+    return (field.invalid && field.touched);
   }
 }
