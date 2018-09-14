@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PrestationService } from '../../services/prestation.service';
 import { Prestation } from '../../../shared/models/prestation';
 import { Observable, Subject } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-prestation',
@@ -17,7 +18,8 @@ export class ListPrestationComponent implements OnInit {
   public button: object;
 
   constructor(
-    private prestationService: PrestationService
+    private prestationService: PrestationService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -30,4 +32,7 @@ export class ListPrestationComponent implements OnInit {
     };
   }
 
+  public updatePresta(prestaId): void {
+    this.router.navigate(['/prestations/edit', prestaId]);
+  }
 }

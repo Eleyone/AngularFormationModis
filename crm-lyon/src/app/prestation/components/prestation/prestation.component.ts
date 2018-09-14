@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Router } from '@angular/router';
 
 import { PrestationService } from '../../services/prestation.service';
 
@@ -17,8 +16,7 @@ export class PrestationComponent implements OnInit {
   public states = Object.values(State);
 
   constructor(
-    private prestationService: PrestationService,
-    private router: Router
+    private prestationService: PrestationService
   ) {}
 
   ngOnInit() {}
@@ -35,10 +33,5 @@ export class PrestationComponent implements OnInit {
     this.prestationService.delete(prestaId).then((data) => {
       this.prestationService.message$.next('Trust me, I\'m enginer.');
     });
-  }
-
-  public updatePresta(e): void {
-    const prestaId = e.target.value;
-    this.router.navigate(['/prestations/edit', prestaId]);
   }
 }

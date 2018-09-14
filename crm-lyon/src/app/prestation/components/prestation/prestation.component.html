@@ -12,6 +12,5 @@
       <option *ngIf="item !== presta.state" [value]="item">{{ item }}</option>
     </ng-container>
   </select>
-  <button [value]="presta.id" (click)="$event.stopPropagation(); updatePresta($event)">modif</button>
   <button [value]="presta.id" (click)="$event.stopPropagation(); deletePresta($event)">X</button>
 </td>

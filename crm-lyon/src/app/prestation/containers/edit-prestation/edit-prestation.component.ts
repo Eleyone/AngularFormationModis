@@ -19,11 +19,11 @@ export class EditPrestationComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    const id = this.route.snapshot.paramMap.get('id');
-
-    this.prestationService.get(id).subscribe((data) => {
-      console.log(data);
-      this.presta = new Prestation(data);
+    this.route.data.subscribe((data) => {
+      console.log(data.prestation);
+      if (data.prestation) {
+        this.presta = new Prestation(data.prestation);
+      }
     });
   }
 

@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { registerLocaleData, CurrencyPipe } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
+import { HttpClientModule } from '@angular/common/http';
 
 // External Modules
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -31,6 +32,7 @@ registerLocaleData(localeFr, 'fr');
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AngularFireModule.initializeApp(config.firebase),
     AngularFirestoreModule,
     LoginModule,

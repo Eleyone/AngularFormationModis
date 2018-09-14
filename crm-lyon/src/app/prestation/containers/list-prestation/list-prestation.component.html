@@ -1,6 +1,6 @@
 <app-table [headers]="headers" [button]="button">
     <ng-container *ngFor="let item of collection$ | async">
-        <app-prestation [presta]="item"></app-prestation>
+        <app-prestation [presta]="item" (click)="$event.stopPropagation(); updatePresta(item.id)"></app-prestation>
       </ng-container>
 </app-table>
 <div *ngIf="message$ | async; let message">

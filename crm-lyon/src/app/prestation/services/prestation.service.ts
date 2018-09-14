@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable, Subject } from 'rxjs';
@@ -6,7 +7,6 @@ import { map } from 'rxjs/operators';
 
 import { Prestation } from '../../shared/models/prestation';
 import { State } from '../../shared/enums/state.enum';
-import { promise } from 'protractor';
 
 // import { fakeCollection } from './prestations_fake';
 
@@ -20,8 +20,12 @@ export class PrestationService {
   public message$: Subject<string> = new Subject<string>();
 
   constructor(
-    private db: AngularFirestore
+    private db: AngularFirestore,
+    private http: HttpClient
   ) {
+    /**
+     * Angular Firebase methode
+     */
     this._dbCollection = db.collection<Prestation>('prestation');
     this.collection$ = this._dbCollection.valueChanges().pipe(
       map((data) => {
@@ -32,6 +36,11 @@ export class PrestationService {
         return tab;
       })
     );
+
+   /**
+    * HttpClient Méthode
+    */
+   // this.collection$ = this.http.get('api/endpoint');
   }
 
   // get collection
@@ -51,9 +60,14 @@ export class PrestationService {
 
   // add presta
   public add(presta: Prestation): Promise<any> {
-    const updatedPresta = { ...presta };
-    updatedPresta.id = this.db.createId();
-    return this._dbCollection.doc(updatedPresta.id).set(updatedPresta);
+    const newPresta = { ...presta };
+    newPresta.id = this.db.createId();
+    return this._dbCollection.doc(newPresta.id).set(newPresta);
+
+    /*
+    Doit obligatoirement etre 'subscribe' pour lancer la requete HTTP
+    return this.http.post('api/endpoint', newPresta);
+    */
   }
 
   // update presta

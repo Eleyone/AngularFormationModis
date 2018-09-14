@@ -11,6 +11,7 @@ import { ListPrestationComponent } from './containers/list-prestation/list-prest
 import { FormComponent } from './components/form/form.component';
 import { PrestationComponent } from './components/prestation/prestation.component';
 import { FormReactivComponent } from './components/form-reactiv/form-reactiv.component';
+import { ResolverPrestationService } from './services/resolver-prestation.service';
 
 @NgModule({
   imports: [
@@ -27,6 +28,7 @@ import { FormReactivComponent } from './components/form-reactiv/form-reactiv.com
     EditPrestationComponent,
     FormComponent,
     FormReactivComponent
-  ]
+  ],
+  providers: [ResolverPrestationService]
 })
 export class PrestationModule { }
