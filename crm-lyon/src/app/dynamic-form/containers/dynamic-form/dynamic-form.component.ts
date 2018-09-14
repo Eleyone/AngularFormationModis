@@ -17,6 +17,7 @@ export class DynamicFormComponent implements OnInit {
   constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
+    console.log(this.config);
     this.form = this.createGroup();
   }
 
