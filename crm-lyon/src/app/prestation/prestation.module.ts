@@ -12,6 +12,8 @@ import { FormComponent } from './components/form/form.component';
 import { PrestationComponent } from './components/prestation/prestation.component';
 import { FormReactivComponent } from './components/form-reactiv/form-reactiv.component';
 import { ResolverPrestationService } from './services/resolver-prestation.service';
+import { FormDynamicComponent } from './components/form-dynamic/form-dynamic.component';
+import { DynamicFormModule } from '../dynamic-form/dynamic-form.module';
 
 @NgModule({
   imports: [
@@ -19,7 +21,8 @@ import { ResolverPrestationService } from './services/resolver-prestation.servic
     PrestationRoutingModule,
     SharedModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DynamicFormModule
   ],
   declarations: [
     ListPrestationComponent,
@@ -27,7 +30,8 @@ import { ResolverPrestationService } from './services/resolver-prestation.servic
     AddPrestationComponent,
     EditPrestationComponent,
     FormComponent,
-    FormReactivComponent
+    FormReactivComponent,
+    FormDynamicComponent
   ],
   providers: [ResolverPrestationService]
 })

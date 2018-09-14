@@ -34,6 +34,6 @@ export class EditPrestationComponent implements OnInit {
   }
 
   public cancel(): void {
-    this.router.navigate(['prestations']);
+    this.router.navigate(['../'], { relativeTo: this.route });
   }
 }

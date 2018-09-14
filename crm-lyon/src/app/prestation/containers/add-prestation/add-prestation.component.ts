@@ -15,12 +15,10 @@ export class AddPrestationComponent implements OnInit {
   constructor(
     private prestationService: PrestationService,
     private router: Router,
-    private activatedRoute: ActivatedRoute
+    private route: ActivatedRoute
   ) { }
 
-  ngOnInit() {
-    console.log(this.router, this.activatedRoute);
-  }
+  ngOnInit() { }
 
   public add(newPresta: Prestation) {
     this.prestationService.add(newPresta).then(() => {
@@ -29,6 +27,6 @@ export class AddPrestationComponent implements OnInit {
   }
 
   public cancel(): void {
-    this.router.navigate(['prestations']);
+    this.router.navigate(['../'], { relativeTo: this.route });
   }
 }

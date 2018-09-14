@@ -12,6 +12,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 // App Modules
 import { AppRoutingModule } from './app-routing.module';
+import { DynamicFormModule } from './dynamic-form/dynamic-form.module';
 import { LoginModule } from './login/login.module';
 import { PageNotFoundModule } from './page-not-found/page-not-found.module';
 import { UserInterfacesModule } from './user-interfaces/user-interfaces.module';
@@ -20,8 +21,6 @@ import { UserInterfacesModule } from './user-interfaces/user-interfaces.module';
 import { AppComponent } from './app.component';
 
 import { config } from 'src/environments/environment.firebase';
-
-console.log(config);
 
 // the second parameter 'fr' is optional
 registerLocaleData(localeFr, 'fr');

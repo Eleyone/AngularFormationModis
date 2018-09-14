@@ -1,3 +1,5 @@
 <div class="container-fluid">
-  <app-form-reactiv (newPresta)="add($event)" (cancelEvent)="cancel()" [presta]="presta"></app-form-reactiv>
+  <app-form-dynamic (submitted)="add($event)" (canceled)="cancel()" [presta]="presta">
+    
+  </app-form-dynamic>
 </div>
