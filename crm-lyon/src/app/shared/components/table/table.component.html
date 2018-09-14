@@ -11,7 +11,7 @@
       </tbody>
       <tfoot>
         <tr>
-          <th>
+          <th [attr.colspan]="headers.length">
             <a [routerLink]='[button.route]' routerLinkActive="router-link-active">{{ button.libelle }}</a>
           </th>
         </tr>

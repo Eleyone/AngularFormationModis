@@ -19,6 +19,7 @@ export class FormReactivComponent implements OnInit {
 
   @Input() presta: Prestation;
   @Output() newPresta: EventEmitter<Prestation> = new EventEmitter();
+  @Output() cancelEvent: EventEmitter<string> = new EventEmitter();
 
   constructor(
     private formBuilder: FormBuilder
@@ -54,6 +55,10 @@ export class FormReactivComponent implements OnInit {
 
   public process(): void {
     this.newPresta.emit(new Prestation(this.prestaForm.value));
+  }
+
+  public cancel(): void {
+    this.cancelEvent.emit('cancel');
   }
 
   public isError(fieldId: string): boolean {

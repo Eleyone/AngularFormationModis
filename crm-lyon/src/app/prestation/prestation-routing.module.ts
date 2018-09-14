@@ -8,9 +8,19 @@ import { AddPrestationComponent } from './containers/add-prestation/add-prestati
 import { EditPrestationComponent } from './containers/edit-prestation/edit-prestation.component';
 
 const prestationRoutes: Routes = [
-  { path: '', component: ListPrestationComponent },
-  { path: 'add', component: AddPrestationComponent},
-  { path: 'edit/:id', component: EditPrestationComponent, resolve: { prestation: ResolverPrestationService}}
+  {
+    path: '', component: ListPrestationComponent, children: [
+      {
+        path: 'add',
+        component: AddPrestationComponent
+      },
+      {
+        path: 'edit/:id',
+        component: EditPrestationComponent,
+        resolve: { prestation: ResolverPrestationService }
+      }
+    ]
+  }
 ];
 
 @NgModule({
